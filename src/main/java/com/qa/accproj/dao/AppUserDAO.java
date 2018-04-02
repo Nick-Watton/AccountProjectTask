@@ -28,16 +28,6 @@ public class AppUserDAO {
         USERS_MAP.put(john.getAccountNumber(), john);
         USERS_MAP.put(jane.getAccountNumber(), jane);
     }
-  
-    public AppUser findAppUserByAccountNumber(int accountNumber) {
-        Collection<AppUser> appUsers = USERS_MAP.values();
-        for (AppUser u : appUsers) {
-            if (u.getAccountNumber()==(accountNumber)) {
-                return u;
-            }
-        }
-        return null;
-    }
     
     public List<AppUser> getAppUsers() {
         List<AppUser> list = new ArrayList<>();
