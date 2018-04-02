@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title th:utext="${title}"></title>
+      <style>
+         th, td {
+         padding: 5px;
+         }
+         td span  {
+         font-size:90%;
+         font-style: italic;
+         color: red;
+         }
+         .error {
+         color: red;
+         font-style: italic;
+         }
+      </style>
+   </head>
+   <body>
+      <th:block th:include="/_menu"></th:block>
+       
+      <h2 style="font-family:verdana;">Delete Account</h2>
+       
+      <div th:if="${errorMessage != null}"
+           th:utext="${errorMessage}" class="error">...</div>
+       
+      <form th:action="@{/removeaccount}" th:object="${appUserForm}" method="POST">
+         <table style="font-family:verdana;">
+            <tr>
+               <td>Account Number</td>
+               <td><input type="text" th:field="*{accountNumber}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('accountNumber')}" th:errors="*{accountNumber}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>&nbsp;</td>
+               <td>
+                  <input type="submit" value="Delete" />
+                  <a th:href="@{/}">Cancel</a>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+         </table>
+      </form>
+       
+   </body>
+</html>
