@@ -35,7 +35,6 @@ public class MainController {
       
       if (target.getClass() == AppUserForm.class) {
          dataBinder.setValidator(appUserValidator);
-         System.out.println("Validator set");
       }
    }
  
@@ -44,13 +43,13 @@ public class MainController {
  
       List<AppUser> list = appUserDAO.getAppUsers();
       model.addAttribute("accounts", list);
-      return "accountsPage";
+      return "accounts";
    }
  
    @RequestMapping("/registerSuccessful")
    public String viewRegisterSuccessful(Model model) {
  
-      return "registerSuccessfulPage";
+      return "registerSuccessful";
    }
    
    @RequestMapping("/deleteSuccessful")
@@ -69,7 +68,7 @@ public class MainController {
    public String viewRegister(Model model) {
 	   AppUserForm form = new AppUserForm(0, null, null);
 	   model.addAttribute("appUserForm", form);
-      return "registerPage";
+      return "register";
    }
  
    @RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -77,7 +76,7 @@ public class MainController {
          @ModelAttribute("appUserForm") @Validated AppUserForm appUserForm, //
          BindingResult result, //
          final RedirectAttributes redirectAttributes) {
-	   if (result.hasErrors()) return "registerPage";
+	   if (result.hasErrors()) return "register";
 	   
       AppUser newUser= null;
       try {
@@ -86,7 +85,7 @@ public class MainController {
       catch (Exception e) {
 
          model.addAttribute("errorMessage", "Error: " + e.getMessage());
-         return "registerPage";
+         return "register";
       }
  
       redirectAttributes.addFlashAttribute("flashUser", newUser);
