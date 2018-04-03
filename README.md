@@ -9,6 +9,6 @@ The project *should* run without errors, but I have detailed two errors I have e
 
 ISSUES
 
-* Sometimes the libraries/dependencies bug out when cloning the repository, and Eclipse does not recognise them. Deleting the contents of C:\Users\UserName\.m2\repository and then running the project as 'Maven install' should fix this issue.
+* Sometimes the libraries/dependencies bug out when cloning the repository, and Eclipse does not recognise them. Deleting the contents of C:\Users\UserName\\.m2\repository and then running the project as 'Maven install' should fix this issue.
   
 * Also upon cloning sometimes some of the src/main/resources/templates .html files can be missing. There should be 8 .html files in total. Deleting the project from your machine and re-cloning usually fixes this issue.
