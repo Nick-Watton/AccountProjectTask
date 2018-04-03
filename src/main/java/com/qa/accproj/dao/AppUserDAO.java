@@ -13,9 +13,8 @@ import org.springframework.stereotype.Repository;
 public class AppUserDAO {
  
     private static final Map<Integer, AppUser> USERS_MAP = new HashMap<>();
- 
+  
     static {
-    
     initDATA();
     }
  
